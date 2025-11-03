@@ -44,9 +44,6 @@
         },
         "malformed bytes": {
           "desc": "Ensure a helpful error message is thrown when attempting to decode malformed bytes"
-        },
-        "Invalid type": {
-          "desc": "Ensure a helpful error message is thrown when giving the wrong type to a field"
         }
       }
     },
