@@ -1,331 +1,331 @@
 # Polytest Test Plan
 ## Test Suites
 
-### Get /debug/settings/config
+### Get Debug Settings Config
 
 | Name | Description |
 | --- | --- |
 | [Common Tests](#common-tests) | Common tests for all endpoints |
 
-### Get /debug/settings/pprof
+### Get Debug Settings Pprof
 
 | Name | Description |
 | --- | --- |
 | [Common Tests](#common-tests) | Common tests for all endpoints |
 
-### Put /debug/settings/pprof
+### Put Debug Settings Pprof
 
 | Name | Description |
 | --- | --- |
 | [Common Tests](#common-tests) | Common tests for all endpoints |
 
-### Get /genesis
+### Get Genesis
 
 | Name | Description |
 | --- | --- |
 | [Common Tests](#common-tests) | Common tests for all endpoints |
 
-### Get /health
+### Get Health
 
 | Name | Description |
 | --- | --- |
 | [Common Tests](#common-tests) | Common tests for all endpoints |
 
-### Get /metrics
+### Get Metrics
 
 | Name | Description |
 | --- | --- |
 | [Common Tests](#common-tests) | Common tests for all endpoints |
 
-### Get /ready
+### Get Ready
 
 | Name | Description |
 | --- | --- |
 | [Common Tests](#common-tests) | Common tests for all endpoints |
 
-### Get /swagger.json
+### Get Swagger Json
 
 | Name | Description |
 | --- | --- |
 | [Common Tests](#common-tests) | Common tests for all endpoints |
 
-### Get /v 2/accounts/{address}
+### Get V 2 Accounts Address
 
 | Name | Description |
 | --- | --- |
 | [Common Tests](#common-tests) | Common tests for all endpoints |
 
-### Get /v 2/accounts/{address}/applications/{application Id}
+### Get V 2 Accounts Address Applications Application Id
 
 | Name | Description |
 | --- | --- |
 | [Common Tests](#common-tests) | Common tests for all endpoints |
 
-### Get /v 2/accounts/{address}/assets
+### Get V 2 Accounts Address Assets
 
 | Name | Description |
 | --- | --- |
 | [Common Tests](#common-tests) | Common tests for all endpoints |
 
-### Get /v 2/accounts/{address}/assets/{asset Id}
+### Get V 2 Accounts Address Assets Asset Id
 
 | Name | Description |
 | --- | --- |
 | [Common Tests](#common-tests) | Common tests for all endpoints |
 
-### Get /v 2/accounts/{address}/transactions/pending
+### Get V 2 Accounts Address Transactions Pending
 
 | Name | Description |
 | --- | --- |
 | [Common Tests](#common-tests) | Common tests for all endpoints |
 
-### Get /v 2/applications/{application Id}
+### Get V 2 Applications Application Id
 
 | Name | Description |
 | --- | --- |
 | [Common Tests](#common-tests) | Common tests for all endpoints |
 
-### Get /v 2/applications/{application Id}/box
+### Get V 2 Applications Application Id Box
 
 | Name | Description |
 | --- | --- |
 | [Common Tests](#common-tests) | Common tests for all endpoints |
 
-### Get /v 2/applications/{application Id}/boxes
+### Get V 2 Applications Application Id Boxes
 
 | Name | Description |
 | --- | --- |
 | [Common Tests](#common-tests) | Common tests for all endpoints |
 
-### Get /v 2/assets/{asset Id}
+### Get V 2 Assets Asset Id
 
 | Name | Description |
 | --- | --- |
 | [Common Tests](#common-tests) | Common tests for all endpoints |
 
-### Get /v 2/blocks/{round}
+### Get V 2 Blocks Round
 
 | Name | Description |
 | --- | --- |
 | [Common Tests](#common-tests) | Common tests for all endpoints |
 
-### Get /v 2/blocks/{round}/hash
+### Get V 2 Blocks Round Hash
 
 | Name | Description |
 | --- | --- |
 | [Common Tests](#common-tests) | Common tests for all endpoints |
 
-### Get /v 2/blocks/{round}/lightheader/proof
+### Get V 2 Blocks Round Lightheader Proof
 
 | Name | Description |
 | --- | --- |
 | [Common Tests](#common-tests) | Common tests for all endpoints |
 
-### Get /v 2/blocks/{round}/logs
+### Get V 2 Blocks Round Logs
 
 | Name | Description |
 | --- | --- |
 | [Common Tests](#common-tests) | Common tests for all endpoints |
 
-### Get /v 2/blocks/{round}/transactions/{txid}/proof
+### Get V 2 Blocks Round Transactions Txid Proof
 
 | Name | Description |
 | --- | --- |
 | [Common Tests](#common-tests) | Common tests for all endpoints |
 
-### Get /v 2/blocks/{round}/txids
+### Get V 2 Blocks Round Txids
 
 | Name | Description |
 | --- | --- |
 | [Common Tests](#common-tests) | Common tests for all endpoints |
 
-### Post /v 2/catchup/{catchpoint}
+### Post V 2 Catchup Catchpoint
 
 | Name | Description |
 | --- | --- |
 | [Common Tests](#common-tests) | Common tests for all endpoints |
 
-### Delete /v 2/catchup/{catchpoint}
+### Delete V 2 Catchup Catchpoint
 
 | Name | Description |
 | --- | --- |
 | [Common Tests](#common-tests) | Common tests for all endpoints |
 
-### Get /v 2/deltas/txn/group/{id}
+### Get V 2 Deltas Txn Group Id
 
 | Name | Description |
 | --- | --- |
 | [Common Tests](#common-tests) | Common tests for all endpoints |
 
-### Get /v 2/deltas/{round}
+### Get V 2 Deltas Round
 
 | Name | Description |
 | --- | --- |
 | [Common Tests](#common-tests) | Common tests for all endpoints |
 
-### Get /v 2/deltas/{round}/txn/group
+### Get V 2 Deltas Round Txn Group
 
 | Name | Description |
 | --- | --- |
 | [Common Tests](#common-tests) | Common tests for all endpoints |
 
-### Get /v 2/devmode/blocks/offset
+### Get V 2 Devmode Blocks Offset
 
 | Name | Description |
 | --- | --- |
 | [Common Tests](#common-tests) | Common tests for all endpoints |
 
-### Post /v 2/devmode/blocks/offset/{offset}
+### Post V 2 Devmode Blocks Offset Offset
 
 | Name | Description |
 | --- | --- |
 | [Common Tests](#common-tests) | Common tests for all endpoints |
 
-### Get /v 2/experimental
+### Get V 2 Experimental
 
 | Name | Description |
 | --- | --- |
 | [Common Tests](#common-tests) | Common tests for all endpoints |
 
-### Get /v 2/ledger/supply
+### Get V 2 Ledger Supply
 
 | Name | Description |
 | --- | --- |
 | [Common Tests](#common-tests) | Common tests for all endpoints |
 
-### Get /v 2/ledger/sync
+### Get V 2 Ledger Sync
 
 | Name | Description |
 | --- | --- |
 | [Common Tests](#common-tests) | Common tests for all endpoints |
 
-### Delete /v 2/ledger/sync
+### Delete V 2 Ledger Sync
 
 | Name | Description |
 | --- | --- |
 | [Common Tests](#common-tests) | Common tests for all endpoints |
 
-### Post /v 2/ledger/sync/{round}
+### Post V 2 Ledger Sync Round
 
 | Name | Description |
 | --- | --- |
 | [Common Tests](#common-tests) | Common tests for all endpoints |
 
-### Post /v 2/participation
+### Post V 2 Participation
 
 | Name | Description |
 | --- | --- |
 | [Common Tests](#common-tests) | Common tests for all endpoints |
 
-### Get /v 2/participation
+### Get V 2 Participation
 
 | Name | Description |
 | --- | --- |
 | [Common Tests](#common-tests) | Common tests for all endpoints |
 
-### Post /v 2/participation/generate/{address}
+### Post V 2 Participation Generate Address
 
 | Name | Description |
 | --- | --- |
 | [Common Tests](#common-tests) | Common tests for all endpoints |
 
-### Post /v 2/participation/{participation Id}
+### Post V 2 Participation Participation Id
 
 | Name | Description |
 | --- | --- |
 | [Common Tests](#common-tests) | Common tests for all endpoints |
 
-### Get /v 2/participation/{participation Id}
+### Get V 2 Participation Participation Id
 
 | Name | Description |
 | --- | --- |
 | [Common Tests](#common-tests) | Common tests for all endpoints |
 
-### Delete /v 2/participation/{participation Id}
+### Delete V 2 Participation Participation Id
 
 | Name | Description |
 | --- | --- |
 | [Common Tests](#common-tests) | Common tests for all endpoints |
 
-### Post /v 2/shutdown
+### Post V 2 Shutdown
 
 | Name | Description |
 | --- | --- |
 | [Common Tests](#common-tests) | Common tests for all endpoints |
 
-### Get /v 2/stateproofs/{round}
+### Get V 2 Stateproofs Round
 
 | Name | Description |
 | --- | --- |
 | [Common Tests](#common-tests) | Common tests for all endpoints |
 
-### Get /v 2/status
+### Get V 2 Status
 
 | Name | Description |
 | --- | --- |
 | [Common Tests](#common-tests) | Common tests for all endpoints |
 
-### Get /v 2/status/wait For Block After/{round}
+### Get V 2 Status Wait For Block After Round
 
 | Name | Description |
 | --- | --- |
 | [Common Tests](#common-tests) | Common tests for all endpoints |
 
-### Post /v 2/teal/compile
+### Post V 2 Teal Compile
 
 | Name | Description |
 | --- | --- |
 | [Common Tests](#common-tests) | Common tests for all endpoints |
 
-### Post /v 2/teal/disassemble
+### Post V 2 Teal Disassemble
 
 | Name | Description |
 | --- | --- |
 | [Common Tests](#common-tests) | Common tests for all endpoints |
 
-### Post /v 2/teal/dryrun
+### Post V 2 Teal Dryrun
 
 | Name | Description |
 | --- | --- |
 | [Common Tests](#common-tests) | Common tests for all endpoints |
 
-### Post /v 2/transactions
+### Post V 2 Transactions
 
 | Name | Description |
 | --- | --- |
 | [Common Tests](#common-tests) | Common tests for all endpoints |
 
-### Post /v 2/transactions/async
+### Post V 2 Transactions Async
 
 | Name | Description |
 | --- | --- |
 | [Common Tests](#common-tests) | Common tests for all endpoints |
 
-### Get /v 2/transactions/params
+### Get V 2 Transactions Params
 
 | Name | Description |
 | --- | --- |
 | [Common Tests](#common-tests) | Common tests for all endpoints |
 
-### Get /v 2/transactions/pending
+### Get V 2 Transactions Pending
 
 | Name | Description |
 | --- | --- |
 | [Common Tests](#common-tests) | Common tests for all endpoints |
 
-### Get /v 2/transactions/pending/{txid}
+### Get V 2 Transactions Pending Txid
 
 | Name | Description |
 | --- | --- |
 | [Common Tests](#common-tests) | Common tests for all endpoints |
 
-### Post /v 2/transactions/simulate
+### Post V 2 Transactions Simulate
 
 | Name | Description |
 | --- | --- |
 | [Common Tests](#common-tests) | Common tests for all endpoints |
 
-### Get /versions
+### Get Versions
 
 | Name | Description |
 | --- | --- |

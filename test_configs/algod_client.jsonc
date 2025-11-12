@@ -1,224 +1,225 @@
 {
   "name": "algod_client Test Plan",
   "package_name": "algod_client",
+  "version": "0.5",
   "suite": {
-    "GET /debug/settings/config": {
+    "GET debug_settings_config": {
       "desc": "Tests for the /debug/settings/config endpoint",
       "groups": ["Common Tests"]
     },
-    "GET /debug/settings/pprof": {
+    "GET debug_settings_pprof": {
       "desc": "Tests for the /debug/settings/pprof endpoint",
       "groups": ["Common Tests"]
     },
-    "PUT /debug/settings/pprof": {
+    "PUT debug_settings_pprof": {
       "desc": "Tests for the /debug/settings/pprof endpoint",
       "groups": ["Common Tests"]
     },
-    "GET /genesis": {
+    "GET genesis": {
       "desc": "Tests for the /genesis endpoint",
       "groups": ["Common Tests"]
     },
-    "GET /health": {
+    "GET health": {
       "desc": "Tests for the /health endpoint",
       "groups": ["Common Tests"]
     },
-    "GET /metrics": {
+    "GET metrics": {
       "desc": "Tests for the /metrics endpoint",
       "groups": ["Common Tests"]
     },
-    "GET /ready": {
+    "GET ready": {
       "desc": "Tests for the /ready endpoint",
       "groups": ["Common Tests"]
     },
-    "GET /swagger.json": {
+    "GET swagger_json": {
       "desc": "Tests for the /swagger.json endpoint",
       "groups": ["Common Tests"]
     },
-    "GET /v2/accounts/{address}": {
+    "GET v2_accounts_ADDRESS": {
       "desc": "Tests for the /v2/accounts/{address} endpoint",
       "groups": ["Common Tests"]
     },
-    "GET /v2/accounts/{address}/applications/{application-id}": {
+    "GET v2_accounts_ADDRESS_applications_APPLICATION-ID": {
       "desc": "Tests for the /v2/accounts/{address}/applications/{application-id} endpoint",
       "groups": ["Common Tests"]
     },
-    "GET /v2/accounts/{address}/assets": {
+    "GET v2_accounts_ADDRESS_assets": {
       "desc": "Tests for the /v2/accounts/{address}/assets endpoint",
       "groups": ["Common Tests"]
     },
-    "GET /v2/accounts/{address}/assets/{asset-id}": {
+    "GET v2_accounts_ADDRESS_assets_ASSET-ID": {
       "desc": "Tests for the /v2/accounts/{address}/assets/{asset-id} endpoint",
       "groups": ["Common Tests"]
     },
-    "GET /v2/accounts/{address}/transactions/pending": {
+    "GET v2_accounts_ADDRESS_transactions_pending": {
       "desc": "Tests for the /v2/accounts/{address}/transactions/pending endpoint",
       "groups": ["Common Tests"]
     },
-    "GET /v2/applications/{application-id}": {
+    "GET v2_applications_APPLICATION-ID": {
       "desc": "Tests for the /v2/applications/{application-id} endpoint",
       "groups": ["Common Tests"]
     },
-    "GET /v2/applications/{application-id}/box": {
+    "GET v2_applications_APPLICATION-ID_box": {
       "desc": "Tests for the /v2/applications/{application-id}/box endpoint",
       "groups": ["Common Tests"]
     },
-    "GET /v2/applications/{application-id}/boxes": {
+    "GET v2_applications_APPLICATION-ID_boxes": {
       "desc": "Tests for the /v2/applications/{application-id}/boxes endpoint",
       "groups": ["Common Tests"]
     },
-    "GET /v2/assets/{asset-id}": {
+    "GET v2_assets_ASSET-ID": {
       "desc": "Tests for the /v2/assets/{asset-id} endpoint",
       "groups": ["Common Tests"]
     },
-    "GET /v2/blocks/{round}": {
+    "GET v2_blocks_ROUND": {
       "desc": "Tests for the /v2/blocks/{round} endpoint",
       "groups": ["Common Tests"]
     },
-    "GET /v2/blocks/{round}/hash": {
+    "GET v2_blocks_ROUND_hash": {
       "desc": "Tests for the /v2/blocks/{round}/hash endpoint",
       "groups": ["Common Tests"]
     },
-    "GET /v2/blocks/{round}/lightheader/proof": {
+    "GET v2_blocks_ROUND_lightheader_proof": {
       "desc": "Tests for the /v2/blocks/{round}/lightheader/proof endpoint",
       "groups": ["Common Tests"]
     },
-    "GET /v2/blocks/{round}/logs": {
+    "GET v2_blocks_ROUND_logs": {
       "desc": "Tests for the /v2/blocks/{round}/logs endpoint",
       "groups": ["Common Tests"]
     },
-    "GET /v2/blocks/{round}/transactions/{txid}/proof": {
+    "GET v2_blocks_ROUND_transactions_TXID_proof": {
       "desc": "Tests for the /v2/blocks/{round}/transactions/{txid}/proof endpoint",
       "groups": ["Common Tests"]
     },
-    "GET /v2/blocks/{round}/txids": {
+    "GET v2_blocks_ROUND_txids": {
       "desc": "Tests for the /v2/blocks/{round}/txids endpoint",
       "groups": ["Common Tests"]
     },
-    "POST /v2/catchup/{catchpoint}": {
+    "POST v2_catchup_CATCHPOINT": {
       "desc": "Tests for the /v2/catchup/{catchpoint} endpoint",
       "groups": ["Common Tests"]
     },
-    "DELETE /v2/catchup/{catchpoint}": {
+    "DELETE v2_catchup_CATCHPOINT": {
       "desc": "Tests for the /v2/catchup/{catchpoint} endpoint",
       "groups": ["Common Tests"]
     },
-    "GET /v2/deltas/txn/group/{id}": {
+    "GET v2_deltas_txn_group_ID": {
       "desc": "Tests for the /v2/deltas/txn/group/{id} endpoint",
       "groups": ["Common Tests"]
     },
-    "GET /v2/deltas/{round}": {
+    "GET v2_deltas_ROUND": {
       "desc": "Tests for the /v2/deltas/{round} endpoint",
       "groups": ["Common Tests"]
     },
-    "GET /v2/deltas/{round}/txn/group": {
+    "GET v2_deltas_ROUND_txn_group": {
       "desc": "Tests for the /v2/deltas/{round}/txn/group endpoint",
       "groups": ["Common Tests"]
     },
-    "GET /v2/devmode/blocks/offset": {
+    "GET v2_devmode_blocks_offset": {
       "desc": "Tests for the /v2/devmode/blocks/offset endpoint",
       "groups": ["Common Tests"]
     },
-    "POST /v2/devmode/blocks/offset/{offset}": {
+    "POST v2_devmode_blocks_offset_OFFSET": {
       "desc": "Tests for the /v2/devmode/blocks/offset/{offset} endpoint",
       "groups": ["Common Tests"]
     },
-    "GET /v2/experimental": {
+    "GET v2_experimental": {
       "desc": "Tests for the /v2/experimental endpoint",
       "groups": ["Common Tests"]
     },
-    "GET /v2/ledger/supply": {
+    "GET v2_ledger_supply": {
       "desc": "Tests for the /v2/ledger/supply endpoint",
       "groups": ["Common Tests"]
     },
-    "GET /v2/ledger/sync": {
+    "GET v2_ledger_sync": {
       "desc": "Tests for the /v2/ledger/sync endpoint",
       "groups": ["Common Tests"]
     },
-    "DELETE /v2/ledger/sync": {
+    "DELETE v2_ledger_sync": {
       "desc": "Tests for the /v2/ledger/sync endpoint",
       "groups": ["Common Tests"]
     },
-    "POST /v2/ledger/sync/{round}": {
+    "POST v2_ledger_sync_ROUND": {
       "desc": "Tests for the /v2/ledger/sync/{round} endpoint",
       "groups": ["Common Tests"]
     },
-    "POST /v2/participation": {
+    "POST v2_participation": {
       "desc": "Tests for the /v2/participation endpoint",
       "groups": ["Common Tests"]
     },
-    "GET /v2/participation": {
+    "GET v2_participation": {
       "desc": "Tests for the /v2/participation endpoint",
       "groups": ["Common Tests"]
     },
-    "POST /v2/participation/generate/{address}": {
+    "POST v2_participation_generate_ADDRESS": {
       "desc": "Tests for the /v2/participation/generate/{address} endpoint",
       "groups": ["Common Tests"]
     },
-    "POST /v2/participation/{participation-id}": {
+    "POST v2_participation_PARTICIPATION-ID": {
       "desc": "Tests for the /v2/participation/{participation-id} endpoint",
       "groups": ["Common Tests"]
     },
-    "GET /v2/participation/{participation-id}": {
+    "GET v2_participation_PARTICIPATION-ID": {
       "desc": "Tests for the /v2/participation/{participation-id} endpoint",
       "groups": ["Common Tests"]
     },
-    "DELETE /v2/participation/{participation-id}": {
+    "DELETE v2_participation_PARTICIPATION-ID": {
       "desc": "Tests for the /v2/participation/{participation-id} endpoint",
       "groups": ["Common Tests"]
     },
-    "POST /v2/shutdown": {
+    "POST v2_shutdown": {
       "desc": "Tests for the /v2/shutdown endpoint",
       "groups": ["Common Tests"]
     },
-    "GET /v2/stateproofs/{round}": {
+    "GET v2_stateproofs_ROUND": {
       "desc": "Tests for the /v2/stateproofs/{round} endpoint",
       "groups": ["Common Tests"]
     },
-    "GET /v2/status": {
+    "GET v2_status": {
       "desc": "Tests for the /v2/status endpoint",
       "groups": ["Common Tests"]
     },
-    "GET /v2/status/wait-for-block-after/{round}": {
+    "GET v2_status_wait-for-block-after_ROUND": {
       "desc": "Tests for the /v2/status/wait-for-block-after/{round} endpoint",
       "groups": ["Common Tests"]
     },
-    "POST /v2/teal/compile": {
+    "POST v2_teal_compile": {
       "desc": "Tests for the /v2/teal/compile endpoint",
       "groups": ["Common Tests"]
     },
-    "POST /v2/teal/disassemble": {
+    "POST v2_teal_disassemble": {
       "desc": "Tests for the /v2/teal/disassemble endpoint",
       "groups": ["Common Tests"]
     },
-    "POST /v2/teal/dryrun": {
+    "POST v2_teal_dryrun": {
       "desc": "Tests for the /v2/teal/dryrun endpoint",
       "groups": ["Common Tests"]
     },
-    "POST /v2/transactions": {
+    "POST v2_transactions": {
       "desc": "Tests for the /v2/transactions endpoint",
       "groups": ["Common Tests"]
     },
-    "POST /v2/transactions/async": {
+    "POST v2_transactions_async": {
       "desc": "Tests for the /v2/transactions/async endpoint",
       "groups": ["Common Tests"]
     },
-    "GET /v2/transactions/params": {
+    "GET v2_transactions_params": {
       "desc": "Tests for the /v2/transactions/params endpoint",
       "groups": ["Common Tests"]
     },
-    "GET /v2/transactions/pending": {
+    "GET v2_transactions_pending": {
       "desc": "Tests for the /v2/transactions/pending endpoint",
       "groups": ["Common Tests"]
     },
-    "GET /v2/transactions/pending/{txid}": {
+    "GET v2_transactions_pending_TXID": {
       "desc": "Tests for the /v2/transactions/pending/{txid} endpoint",
       "groups": ["Common Tests"]
     },
-    "POST /v2/transactions/simulate": {
+    "POST v2_transactions_simulate": {
       "desc": "Tests for the /v2/transactions/simulate endpoint",
       "groups": ["Common Tests"]
     },
-    "GET /versions": {
+    "GET versions": {
       "desc": "Tests for the /versions endpoint",
       "groups": ["Common Tests"]
     }
