@@ -1,6 +1,6 @@
 import type { HeadersInit } from "bun";
 import Fastify from "fastify";
-import { getPolly, type Client } from "./index";
+import { replay, type Client } from "./index";
 import { recordAlgosdkRequests } from "./record";
 
 export type ServerInstance = {
@@ -42,8 +42,6 @@ export async function startServer(client: Client): Promise<ServerInstance> {
 
   // Catch-all proxy through PollyJS
   fastify.all("/*", async (request, reply) => {
-    const polly = getPolly(client, { mode: "replay" });
-
     const url = new URL(
       request.url,
       `http://localhost:${LOCALNET_PORTS[client]}`
@@ -75,19 +73,21 @@ export async function startServer(client: Client): Promise<ServerInstance> {
 
     let response;
     try {
-      response = await fetch(url, {
-        method: request.method,
-        headers: request.headers as HeadersInit,
-        body:
-          request.method !== "GET" && request.method !== "HEAD"
-            ? JSON.stringify(request.body)
-            : undefined
-      });
+      response = await replay(
+        client,
+        async () =>
+          await fetch(url, {
+            method: request.method,
+            headers: request.headers as HeadersInit,
+            body:
+              request.method !== "GET" && request.method !== "HEAD"
+                ? JSON.stringify(request.body)
+                : undefined
+          })
+      );
     } catch (e) {
       reply.status(500).send(JSON.stringify(e));
       return;
-    } finally {
-      await polly.stop();
     }
 
     const data = await response.text();

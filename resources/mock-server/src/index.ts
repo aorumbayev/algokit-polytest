@@ -67,14 +67,14 @@ export async function record(
   }
 }
 
-export async function replay(
+export async function replay<T>(
   client: Client,
-  makeRequests: () => Promise<void>
-) {
+  makeRequests: () => Promise<T>
+): Promise<T> {
   const polly = getPolly(client, { mode: "replay" });
 
   try {
-    await makeRequests();
+    return await makeRequests();
   } finally {
     await polly.stop();
   }
