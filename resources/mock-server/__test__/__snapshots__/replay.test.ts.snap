@@ -13,6 +13,7 @@ NodeStatusResponse {
   "catchpointVerifiedKvs": 0,
   "catchupTime": 0n,
   "lastCatchpoint": "",
+<<<<<<< HEAD
   "lastRound": 57711496n,
   "lastVersion": "https://github.com/algorandfoundation/specs/tree/953304de35264fc3ef91bcd05c123242015eeaed",
   "nextVersion": "https://github.com/algorandfoundation/specs/tree/953304de35264fc3ef91bcd05c123242015eeaed",
@@ -20,6 +21,15 @@ NodeStatusResponse {
   "nextVersionSupported": true,
   "stoppedAtUnsupportedRound": false,
   "timeSinceLastRound": 504021303n,
+=======
+  "lastRound": 57490072n,
+  "lastVersion": "https://github.com/algorandfoundation/specs/tree/953304de35264fc3ef91bcd05c123242015eeaed",
+  "nextVersion": "https://github.com/algorandfoundation/specs/tree/953304de35264fc3ef91bcd05c123242015eeaed",
+  "nextVersionRound": 57490073n,
+  "nextVersionSupported": true,
+  "stoppedAtUnsupportedRound": false,
+  "timeSinceLastRound": 998402345n,
+>>>>>>> 1c30305 (fix: remove problematic response headers during replay)
   "upgradeDelay": undefined,
   "upgradeNextProtocolVoteBefore": undefined,
   "upgradeNoVotes": undefined,
