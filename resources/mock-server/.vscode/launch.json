@@ -16,8 +16,20 @@
       "watchMode": false,
       "env": {
         "NODE_ENV": "development",
-        "LOG_LEVEL": "debug",
-        "PORT": "8000"
+        "LOG_LEVEL": "debug"
+      }
+    },
+    {
+      "type": "bun",
+      "request": "launch",
+      "name": "Debug Record",
+      "program": "${workspaceFolder}/bin/record.ts",
+      "args": ["algod", "record-new"], // Change client: algod, indexer, kmd | mode: record-new, record-overwrite
+      "cwd": "${workspaceFolder}",
+      "stopOnEntry": false,
+      "watchMode": false,
+      "env": {
+        "NODE_ENV": "development"
       }
     },
     {
