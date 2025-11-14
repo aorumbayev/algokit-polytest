@@ -3,6 +3,7 @@ import { startServer, type ServerInstance } from "../src/server";
 import { Algodv2, Indexer, Kmd } from "algosdk";
 
 const PollyError = "PollyError";
+const NON_EXISTENT_ADDRESS = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAY5HFKQ";
 
 describe("Algod Mock Server", () => {
   let algodServer: ServerInstance;
@@ -24,7 +25,7 @@ describe("Algod Mock Server", () => {
 
   it("should fail with unrecorded endpoint", async () => {
     try {
-      await algodClient.genesis().do();
+      await algodClient.accountInformation(NON_EXISTENT_ADDRESS).do();
     } catch (error: any) {
       expect(Buffer.from(error.response.body).toString()).toContain(PollyError);
       return;

@@ -10,14 +10,18 @@ export type Client = "algod" | "kmd" | "indexer";
 
 export function getPolly(
   client: Client,
-  config: { mode: "record-new" | "record-overwrite" | "replay" }
+  config: {
+    mode: "record-new" | "record-overwrite" | "replay";
+    recordingsDir?: string;
+  }
 ) {
   const pollyConfig: PollyConfig = {
     adapters: ["fetch"],
     persister: "fs",
     persisterOptions: {
       fs: {
-        recordingsDir: path.resolve(__dirname, "../recordings")
+        recordingsDir:
+          config.recordingsDir ?? path.resolve(__dirname, "../recordings")
       }
     },
     matchRequestsBy: {
@@ -43,12 +47,14 @@ export function getPolly(
 
   const polly = new Polly(client, pollyConfig);
 
-  // Remove headers that may cause issues during replay. In particular, anything related to compression
-  // should be removed.
-  const problematicHeaders = ["content-encoding", "content-length", "vary"];
+  const headersToRemove = [
+    "transfer-encoding", // Conflicts with content-length header during replay
+    "content-encoding", // HAR stores decompressed body but header indicates compression (e.g. gzip), causing decompression errors
+    "content-length" // Let the server calculate the correct content-length for the response
+  ];
   polly.server.any().on("beforeReplay", (_req, rec) => {
     rec.response.headers = rec.response.headers.filter(
-      (h: any) => !problematicHeaders.includes(h.name.toLowerCase())
+      (h: any) => !headersToRemove.includes(h.name.toLowerCase())
     );
   });
 
@@ -57,9 +63,11 @@ export function getPolly(
 
 export async function record(
   client: Client,
-  makeRequests: () => Promise<void>
+  makeRequests: () => Promise<void>,
+  mode: "record-new" | "record-overwrite" = "record-new",
+  recordingsDir?: string
 ) {
-  const polly = getPolly(client, { mode: "record-new" });
+  const polly = getPolly(client, { mode, recordingsDir });
   try {
     await makeRequests();
   } finally {
@@ -69,9 +77,10 @@ export async function record(
 
 export async function replay<T>(
   client: Client,
-  makeRequests: () => Promise<T>
+  makeRequests: () => Promise<T>,
+  recordingsDir?: string
 ): Promise<T> {
-  const polly = getPolly(client, { mode: "replay" });
+  const polly = getPolly(client, { mode: "replay", recordingsDir });
 
   try {
     return await makeRequests();
