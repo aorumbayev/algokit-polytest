@@ -103,7 +103,7 @@
       "out_dir": "../../tests/modules/algokit_transact"
     },
     "vitest": {
-      "out_dir": "../../packages/algokit_transact/tests"
+      "out_dir": "../../tests"
     }
   },
 
