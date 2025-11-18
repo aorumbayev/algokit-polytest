@@ -22,9 +22,9 @@
     {
       "type": "bun",
       "request": "launch",
-      "name": "Debug Record",
-      "program": "${workspaceFolder}/bin/record.ts",
-      "args": ["algod", "record-new"], // Change client: algod, indexer, kmd | mode: record-new, record-overwrite
+      "name": "Debug Find Pending Transactions",
+      "program": "${workspaceFolder}/scripts/find-pending-transactions.ts",
+      "args": ["60", "1000"], // [pollDuration in seconds, pollInterval in ms]
       "cwd": "${workspaceFolder}",
       "stopOnEntry": false,
       "watchMode": false,
