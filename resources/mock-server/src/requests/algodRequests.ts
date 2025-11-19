@@ -1,0 +1,377 @@
+import { Algodv2 } from "algosdk";
+
+export async function algosdkAlgodRequests() {
+  // TestNet configuration (using AlgoNode public API)
+  const algod = new Algodv2(
+    "a".repeat(64),
+    "https://testnet-api.4160.nodely.dev",
+    443
+  );
+
+  // ========================================
+  // TEST DATA SOURCES:
+  // - Rounds from utils-py test_block.py and test_ledger_state_delta.py
+  // - Other params from Lora object mothers
+  // ========================================
+
+  // From utils-py: Verified TestNet blocks with state proof transactions
+  // For simplicity, we use only the first round here
+  const round = 24099447;
+  // Use to test multiple rounds, loop through the rounds
+  const round2 = 24099347;
+
+  // From Lora: TestNet object mothers
+  const address = "25M5BT2DMMED3V6CWDEYKSNEFGPXX4QBIINCOICLXXRU3UGTSGRMF3MTOE";
+  const appId = 718348254; // testnet
+  const assetId = 705457144;
+  const txId = "VIXTUMAPT7NR4RB2WVOGMETW4QY43KIDA3HWDWWXS3UEDKGTEECQ";
+
+  // ============================================
+  // NO PARAMETERS NEEDED
+  // ============================================
+
+  // GET /v2/status
+  await algod.status().do();
+
+  // GET /health
+  await algod.healthCheck().do();
+
+  // GET /ready
+  await algod.ready().do();
+
+  // GET /genesis
+  await algod.genesis().do();
+
+  // GET /versions
+  await algod.versionsCheck().do();
+
+  // ============================================
+  // ROUND-BASED ENDPOINTS (using utils-py rounds)
+  // ============================================
+
+  // GET /v2/status/wait-for-block-after/{round}
+  await algod.statusAfterBlock(round).do();
+
+  // GET /v2/blocks/{round}
+  await algod.block(round).do();
+
+  // GET /v2/blocks/{round}/hash
+  await algod.getBlockHash(round).do();
+
+  // GET /v2/blocks/{round}/lightheader/proof
+  await algod.getLightBlockHeaderProof(round).do();
+
+  // GET /v2/blocks/{round}/txids
+  await algod.getBlockTxids(round).do();
+
+  // GET /v2/deltas/{round}
+  await algod.getLedgerStateDelta(round).do();
+
+  // GET /v2/stateproofs/{round}
+  // TODO: find a valid value. Will likely have to be done with localnet
+  // const stateProof = await algod.getStateProof(round).do();
+
+  // GET /v2/blocks/{round}/transactions/{txid}/proof
+  const roundWithTxnProof = 57624474;
+  const txIdWithProof = "7KOOPZMUTVFHZ2PKXBGSOR6KZUYJA7P5QY257XNJZLR4NQ7IOW7A";
+  await algod.getTransactionProof(roundWithTxnProof, txIdWithProof).do();
+
+  // ============================================
+  // ADDRESS-BASED ENDPOINTS (using Lora address)
+  // ============================================
+
+  // GET /v2/accounts/{address}
+  await algod.accountInformation(address).do();
+
+  // GET /v2/accounts/{address}/applications/{application-id}
+  await algod.accountApplicationInformation(address, appId).do();
+
+  // GET /v2/accounts/{address}/assets/{asset-id}
+  await algod.accountAssetInformation(address, assetId).do();
+
+  // GET /v2/accounts/{address}/transactions/pending
+  await algod.pendingTransactionByAddress(address).do();
+
+  // ============================================
+  // APPLICATION ENDPOINTS (using Lora appId)
+  // ============================================
+
+  // GET /v2/applications/{application-id}
+  const app = await algod.getApplicationByID(appId).do();
+
+  // GET /v2/applications/{application-id}/box
+  // TODO: find valid values. need localnet?
+  // const boxName = Buffer.from("foo");
+  // const boxResponse = await algod.getApplicationBoxByName(appId, boxName).do();
+
+  // GET /v2/applications/{application-id}/boxes
+  // TODO: find valid values. need localnet?
+  // const boxesResponse = await algod.getApplicationBoxes(appId).do();
+
+  // ============================================
+  // ASSET ENDPOINTS (using Lora assetId)
+  // ============================================
+
+  // GET /v2/assets/{asset-id}
+  const asset = await algod.getAssetByID(assetId).do();
+
+  // ============================================
+  // TRANSACTION ENDPOINTS (using Lora txId)
+  // ============================================
+
+  // GET /v2/transactions/params
+  // Python assertions: genesisId is non-empty, minFee > 0
+  await algod.getTransactionParams().do();
+
+  // GET /v2/transactions/pending
+  await algod.pendingTransactionsInformation().do();
+
+  // GET /v2/transactions/pending/{txid}
+  // TODO: find valid values
+  // const pending = await algod.pendingTransactionInformation(txId).do();
+
+  // ============================================
+  // OTHER ENDPOINTS
+  // ============================================
+
+  // GET /v2/ledger/supply
+  await algod.supply().do();
+
+  // GET /v2/ledger/sync
+  await algod.getSyncRound().do();
+
+  // ============================================
+  // SKIPPED ENDPOINTS
+  // ============================================
+
+  // GET /v2/deltas/txn/group/{id}
+  // SKIP: No group IDs available in Lora object mothers
+  // To implement, find a real testnet group ID and use:
+  // const groupId = "REAL_TESTNET_GROUP_ID";
+  // const deltaForGroup = await algod.getLedgerStateDeltaForTransactionGroup(groupId).do();
+
+  // GET /v2/devmode/blocks/offset
+  // SKIP: This will be done with localnet
+  // const currentOffset = await algod.getBlockOffsetTimestamp().do();
+}
+
+export async function algosdkAlgodRequests1() {
+  // TestNet configuration (using AlgoNode public API)
+  const algod = new Algodv2(
+    "a".repeat(64),
+    // "http://localhost",
+    // 4001
+    "https://testnet-api.4160.nodely.dev",
+    443
+  );
+
+  // ========================================
+  // TEST DATA SOURCES:
+  // - Rounds from utils-py test_block.py and test_ledger_state_delta.py
+  // - Other params from Lora object mothers
+  // ========================================
+
+  // From utils-py: Verified TestNet blocks with state proof transactions
+  // For simplicity, we use only the first round here
+  const round = 24099447;
+  // Use to test multiple rounds, loop through the rounds
+  const round2 = 24099347;
+
+  // From Lora: TestNet object mothers
+  const address = "25M5BT2DMMED3V6CWDEYKSNEFGPXX4QBIINCOICLXXRU3UGTSGRMF3MTOE";
+  const appId = 1108; // localnet
+  // const appId = 718348254; // testnet
+  const assetId = 705457144;
+  const txId = "VIXTUMAPT7NR4RB2WVOGMETW4QY43KIDA3HWDWWXS3UEDKGTEECQ";
+
+  // ============================================
+  // TODO ITEMS AND COMMENTED OUT CODE
+  // ============================================
+
+  // // GET /v2/stateproofs/{round}
+  // // TODO: find a valid value. Will likely have to be done with localnet
+  // const stateProof = await algod.getStateProof(round).do();
+
+  // // GET /v2/transactions/pending/{txid}
+  // // TODO: find valid values
+  // const pending = await algod.pendingTransactionInformation(txId).do();
+
+  // // GET /v2/deltas/txn/group/{id}
+  // // SKIP: No group IDs available in Lora object mothers
+  // // To implement, find a real testnet group ID and use:
+  // const groupId = "REAL_TESTNET_GROUP_ID";
+  // const deltaForGroup = await algod
+  //   .getLedgerStateDeltaForTransactionGroup(groupId)
+  //   .do();
+
+  // GET /v2/deltas/{round}/txn/group
+  // const roundWithTxnGroup = 57624226;
+  // await algod
+  //   .getTransactionGroupLedgerStateDeltasForRound(roundWithTxnGroup)
+  //   .do();
+}
+
+export async function algosdkAlgodRequestsWithMainnet() {
+  // TestNet configuration (using AlgoNode public API)
+  const algod = new Algodv2(
+    "a".repeat(64),
+    "https://mainnet-api.4160.nodely.dev",
+    443
+  );
+
+  // // GET /v2/stateproofs/{round}
+  // // TODO: find a valid value. Will likely have to be done with localnet
+  const stateProofRound = 55680253; // This has to be updated to get most recent 100 blocks
+  await algod.getStateProof(stateProofRound).do();
+}
+
+export async function algosdkAlgodRequestsWithLocalnet() {
+  // LocalNet configuration
+  const algod = new Algodv2("a".repeat(64), "http://localhost", 4001);
+
+  // LocalNet test data
+  const appId = 1108; // localnet application with boxes
+
+  // ============================================
+  // APPLICATION BOX ENDPOINTS (requires localnet)
+  // ============================================
+
+  // GET /v2/applications/{application-id}/box
+  const boxName = Buffer.from("msg");
+  await algod.getApplicationBoxByName(appId, boxName).do();
+
+  // GET /v2/applications/{application-id}/boxes
+  await algod.getApplicationBoxes(appId).do();
+}
+
+export async function algosdkAlgodRequestsApiCalls() {
+  // TestNet configuration (using Nodely public API)
+  const algod = new Algodv2(
+    "a".repeat(64),
+    "https://testnet-api.4160.nodely.dev",
+    443
+  );
+
+  // ========================================
+  // ENDPOINTS NOT IMPLEMENTED IN SDK
+  // These require direct HTTP calls using the internal HTTP client
+  // ========================================
+
+  // GET /metrics
+  // Prometheus metrics endpoint (unversioned path)
+  try {
+    await (algod as any).c.get({
+      relativePath: "/metrics",
+      requestHeaders: { Accept: "text/plain" }
+    });
+  } catch (error) {
+    // Metrics endpoint may not be available on public APIs
+    console.log("Metrics endpoint not available");
+  }
+
+  // GET /swagger.json
+  // OpenAPI specification (unversioned path)
+  try {
+    await (algod as any).c.get({
+      relativePath: "/swagger.json"
+    });
+  } catch (error) {
+    console.log("Swagger endpoint not available");
+  }
+
+  // GET /v2/experimental
+  // Experimental features endpoint
+  try {
+    await (algod as any).c.get({
+      relativePath: "/v2/experimental"
+    });
+  } catch (error) {
+    console.log("Experimental endpoint not available");
+  }
+
+  // ============================================
+  // ACCOUNT ENDPOINTS
+  // ============================================
+
+  // GET /v2/accounts/{address}/assets
+  // List all assets held by an account
+  const address = "25M5BT2DMMED3V6CWDEYKSNEFGPXX4QBIINCOICLXXRU3UGTSGRMF3MTOE";
+  try {
+    await (algod as any).c.get({
+      relativePath: `/v2/accounts/${address}/assets`
+    });
+  } catch (error) {
+    console.log("Account assets endpoint not available");
+  }
+
+  // ============================================
+  // PARTICIPATION ENDPOINTS (node operator only)
+  // ============================================
+
+  // GET /v2/participation
+  // List participation keys (requires node operator access)
+  // TODO: getting 401, requires api access
+  // try {
+  //   await (algod as any).c.get({
+  //     relativePath: "/v2/participation"
+  //   });
+  // } catch (error) {
+  //   console.log(
+  //     "Participation list endpoint not available (requires node access)"
+  //   );
+  // }
+
+  // GET /v2/participation/{participation-id}
+  // Get a specific participation key by ID
+  // TODO: Need a valid participation ID from a node operator
+  // const participationId = "PARTICIPATION_ID";
+  // try {
+  //   await (algod as any).c.get({
+  //     relativePath: `/v2/participation/${participationId}`,
+  //   });
+  // } catch (error) {
+  //   console.log("Participation endpoint not available");
+  // }
+
+  // ============================================
+  // BLOCK LOGS ENDPOINTS
+  // ============================================
+
+  // GET /v2/blocks/{round}/logs
+  // Get logs for a specific round
+  const round = 24099447;
+  try {
+    await (algod as any).c.get({
+      relativePath: `/v2/blocks/${round}/logs`
+    });
+  } catch (error) {
+    console.log("Block logs endpoint not available");
+  }
+
+  // ============================================
+  // DEBUG ENDPOINTS (node operator only, requires EnableDeveloperAPI)
+  // ============================================
+
+  // GET /debug/settings/pprof
+  // Get pprof settings (requires node operator access)
+  // TODO: this endpoint needs credentials
+
+  // try {
+  //   await (algod as any).c.get({
+  //     relativePath: "/debug/settings/pprof",
+  //   });
+  // } catch (error) {
+  //   console.log("Debug pprof endpoint not available (requires node access)");
+  // }
+
+  // GET /debug/settings/config
+  // Get node configuration (requires node operator access)
+  // TODO: this endpoint needs credentials
+  // try {
+  //   await (algod as any).c.get({
+  //     relativePath: "/debug/settings/config"
+  //   });
+  // } catch (error) {
+  //   console.log("Debug config endpoint not available (requires node access)");
+  // }
+}

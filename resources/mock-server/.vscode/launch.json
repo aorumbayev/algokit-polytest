@@ -74,7 +74,7 @@
       "request": "launch",
       "name": "Debug Find Blocks With StateProof",
       "program": "${workspaceFolder}/scripts/find-blocks-with-stateproof.ts",
-      "args": ["latest", "200"], // [startBlock or "latest", numBlocks]
+      "args": ["latest", "275"], // [startBlock or "latest", numBlocks]
       "cwd": "${workspaceFolder}",
       "stopOnEntry": false,
       "watchMode": false
