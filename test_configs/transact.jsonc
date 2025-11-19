@@ -100,7 +100,7 @@
   },
   "target": {
     "pytest": {
-      "out_dir": "../../tests/modules/algokit_transact"
+      "out_dir": "../../tests/modules/transact"
     },
     "vitest": {
       "out_dir": "../../tests"
