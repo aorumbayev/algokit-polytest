@@ -61,7 +61,7 @@ async function findBlocksWithStateProof(
     }
 
     // Add small delay to avoid rate limiting
-    await new Promise((resolve) => setTimeout(resolve, 500));
+    await new Promise((resolve) => setTimeout(resolve, 200));
   }
 
   console.log(`\n=== Summary ===`);
