@@ -23,6 +23,7 @@ export async function algosdkAlgodRequests() {
   // From Lora: TestNet object mothers
   const address = "25M5BT2DMMED3V6CWDEYKSNEFGPXX4QBIINCOICLXXRU3UGTSGRMF3MTOE";
   const appId = 718348254; // testnet
+  const appIdWithBoxes = 742949200; // xgov testnet
   const assetId = 705457144;
   const txId = "VIXTUMAPT7NR4RB2WVOGMETW4QY43KIDA3HWDWWXS3UEDKGTEECQ";
 
@@ -93,20 +94,24 @@ export async function algosdkAlgodRequests() {
   await algod.pendingTransactionByAddress(address).do();
 
   // ============================================
-  // APPLICATION ENDPOINTS (using Lora appId)
+  // APPLICATION ENDPOINTS
   // ============================================
 
   // GET /v2/applications/{application-id}
   const app = await algod.getApplicationByID(appId).do();
 
   // GET /v2/applications/{application-id}/box
-  // TODO: find valid values. need localnet?
-  // const boxName = Buffer.from("foo");
-  // const boxResponse = await algod.getApplicationBoxByName(appId, boxName).do();
+  const boxName = Buffer.from(
+    "cBbHBNV+zUy/Mz5IRhIrBLxr1on5wmidhXEavV+SasC8",
+    "base64"
+  );
+  await algod.getApplicationBoxByName(appIdWithBoxes, boxName).do();
 
   // GET /v2/applications/{application-id}/boxes
-  // TODO: find valid values. need localnet?
-  // const boxesResponse = await algod.getApplicationBoxes(appId).do();
+  await algod.getApplicationBoxes(appIdWithBoxes).do();
+  // TOOD: This currently doesn't work, needs to be fixed. The api doesn't work either
+  // https://testnet-api.4160.nodely.dev/v2/applications/745893371/boxes?max=10
+  // await algod.getApplicationBoxes(appIdWithBoxes).max(10).do();
 
   // ============================================
   // ASSET ENDPOINTS (using Lora assetId)
@@ -221,27 +226,8 @@ export async function algosdkAlgodRequestsWithMainnet() {
 
   // // GET /v2/stateproofs/{round}
   // // TODO: find a valid value. Will likely have to be done with localnet
-  const stateProofRound = 55680253; // This has to be updated to get most recent 100 blocks
+  const stateProofRound = 55739610; // This has to be updated to get most recent 100 blocks
   await algod.getStateProof(stateProofRound).do();
-}
-
-export async function algosdkAlgodRequestsWithLocalnet() {
-  // LocalNet configuration
-  const algod = new Algodv2("a".repeat(64), "http://localhost", 4001);
-
-  // LocalNet test data
-  const appId = 1108; // localnet application with boxes
-
-  // ============================================
-  // APPLICATION BOX ENDPOINTS (requires localnet)
-  // ============================================
-
-  // GET /v2/applications/{application-id}/box
-  const boxName = Buffer.from("msg");
-  await algod.getApplicationBoxByName(appId, boxName).do();
-
-  // GET /v2/applications/{application-id}/boxes
-  await algod.getApplicationBoxes(appId).do();
 }
 
 export async function algosdkAlgodRequestsApiCalls() {

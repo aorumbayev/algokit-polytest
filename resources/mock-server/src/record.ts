@@ -3,8 +3,8 @@ import {
   algosdkAlgodRequests,
   algosdkAlgodRequests1,
   algosdkAlgodRequestsWithMainnet,
-  algosdkAlgodRequestsWithLocalnet,
-  algosdkAlgodRequestsApiCalls
+  algosdkAlgodRequestsApiCalls,
+  algosdkAlgodRequestsTest
 } from "./requests/algodRequests";
 import { algosdkKmdRequests } from "./requests/kmdRequests";
 import { algosdkIndexerRequests } from "./requests/indexerRequests";
@@ -21,7 +21,6 @@ export async function recordAlgosdkRequests(
       await algosdkAlgodRequests();
       // await algosdkAlgodRequests1();
       await algosdkAlgodRequestsWithMainnet();
-      await algosdkAlgodRequestsWithLocalnet();
       await algosdkAlgodRequestsApiCalls();
     };
   } else if (client === "kmd") {

@@ -68,6 +68,16 @@ export function getPolly(
         }
       }
     }
+
+    // Rewrite localhost URLs to production URLs before saving to HAR
+    // This allows recording against localhost (where test data exists) while storing
+    // production-like URLs that match what the mock server expects during replay
+    if (rec.request.url.includes("http://localhost:4001")) {
+      rec.request.url = rec.request.url.replace(
+        "http://localhost:4001",
+        "https://testnet-api.4160.nodely.dev"
+      );
+    }
   });
 
   const headersToRemove = [
