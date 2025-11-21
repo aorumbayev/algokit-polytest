@@ -3,18 +3,6 @@
   "package_name": "algod_client",
   "version": "0.5",
   "suite": {
-    "GET debug_settings_config": {
-      "desc": "Tests for the /debug/settings/config endpoint",
-      "groups": ["Common Tests"]
-    },
-    "GET debug_settings_pprof": {
-      "desc": "Tests for the /debug/settings/pprof endpoint",
-      "groups": ["Common Tests"]
-    },
-    "PUT debug_settings_pprof": {
-      "desc": "Tests for the /debug/settings/pprof endpoint",
-      "groups": ["Common Tests"]
-    },
     "GET genesis": {
       "desc": "Tests for the /genesis endpoint",
       "groups": ["Common Tests"]
@@ -23,16 +11,8 @@
       "desc": "Tests for the /health endpoint",
       "groups": ["Common Tests"]
     },
-    "GET metrics": {
-      "desc": "Tests for the /metrics endpoint",
-      "groups": ["Common Tests"]
-    },
     "GET ready": {
       "desc": "Tests for the /ready endpoint",
-      "groups": ["Common Tests"]
-    },
-    "GET swagger_json": {
-      "desc": "Tests for the /swagger.json endpoint",
       "groups": ["Common Tests"]
     },
     "GET v2_accounts_ADDRESS": {
@@ -41,10 +21,6 @@
     },
     "GET v2_accounts_ADDRESS_applications_APPLICATION-ID": {
       "desc": "Tests for the /v2/accounts/{address}/applications/{application-id} endpoint",
-      "groups": ["Common Tests"]
-    },
-    "GET v2_accounts_ADDRESS_assets": {
-      "desc": "Tests for the /v2/accounts/{address}/assets endpoint",
       "groups": ["Common Tests"]
     },
     "GET v2_accounts_ADDRESS_assets_ASSET-ID": {
@@ -81,10 +57,6 @@
     },
     "GET v2_blocks_ROUND_lightheader_proof": {
       "desc": "Tests for the /v2/blocks/{round}/lightheader/proof endpoint",
-      "groups": ["Common Tests"]
-    },
-    "GET v2_blocks_ROUND_logs": {
-      "desc": "Tests for the /v2/blocks/{round}/logs endpoint",
       "groups": ["Common Tests"]
     },
     "GET v2_blocks_ROUND_transactions_TXID_proof": {
@@ -141,30 +113,6 @@
     },
     "POST v2_ledger_sync_ROUND": {
       "desc": "Tests for the /v2/ledger/sync/{round} endpoint",
-      "groups": ["Common Tests"]
-    },
-    "POST v2_participation": {
-      "desc": "Tests for the /v2/participation endpoint",
-      "groups": ["Common Tests"]
-    },
-    "GET v2_participation": {
-      "desc": "Tests for the /v2/participation endpoint",
-      "groups": ["Common Tests"]
-    },
-    "POST v2_participation_generate_ADDRESS": {
-      "desc": "Tests for the /v2/participation/generate/{address} endpoint",
-      "groups": ["Common Tests"]
-    },
-    "POST v2_participation_PARTICIPATION-ID": {
-      "desc": "Tests for the /v2/participation/{participation-id} endpoint",
-      "groups": ["Common Tests"]
-    },
-    "GET v2_participation_PARTICIPATION-ID": {
-      "desc": "Tests for the /v2/participation/{participation-id} endpoint",
-      "groups": ["Common Tests"]
-    },
-    "DELETE v2_participation_PARTICIPATION-ID": {
-      "desc": "Tests for the /v2/participation/{participation-id} endpoint",
       "groups": ["Common Tests"]
     },
     "POST v2_shutdown": {
