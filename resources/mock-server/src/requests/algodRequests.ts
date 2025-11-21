@@ -160,62 +160,6 @@ export async function algosdkAlgodRequests() {
   // const currentOffset = await algod.getBlockOffsetTimestamp().do();
 }
 
-export async function algosdkAlgodRequests1() {
-  // TestNet configuration (using AlgoNode public API)
-  const algod = new Algodv2(
-    "a".repeat(64),
-    // "http://localhost",
-    // 4001
-    "https://testnet-api.4160.nodely.dev",
-    443
-  );
-
-  // ========================================
-  // TEST DATA SOURCES:
-  // - Rounds from utils-py test_block.py and test_ledger_state_delta.py
-  // - Other params from Lora object mothers
-  // ========================================
-
-  // From utils-py: Verified TestNet blocks with state proof transactions
-  // For simplicity, we use only the first round here
-  const round = 24099447;
-  // Use to test multiple rounds, loop through the rounds
-  const round2 = 24099347;
-
-  // From Lora: TestNet object mothers
-  const address = "25M5BT2DMMED3V6CWDEYKSNEFGPXX4QBIINCOICLXXRU3UGTSGRMF3MTOE";
-  const appId = 1108; // localnet
-  // const appId = 718348254; // testnet
-  const assetId = 705457144;
-  const txId = "VIXTUMAPT7NR4RB2WVOGMETW4QY43KIDA3HWDWWXS3UEDKGTEECQ";
-
-  // ============================================
-  // TODO ITEMS AND COMMENTED OUT CODE
-  // ============================================
-
-  // // GET /v2/stateproofs/{round}
-  // // TODO: find a valid value. Will likely have to be done with localnet
-  // const stateProof = await algod.getStateProof(round).do();
-
-  // // GET /v2/transactions/pending/{txid}
-  // // TODO: find valid values
-  // const pending = await algod.pendingTransactionInformation(txId).do();
-
-  // // GET /v2/deltas/txn/group/{id}
-  // // SKIP: No group IDs available in Lora object mothers
-  // // To implement, find a real testnet group ID and use:
-  // const groupId = "REAL_TESTNET_GROUP_ID";
-  // const deltaForGroup = await algod
-  //   .getLedgerStateDeltaForTransactionGroup(groupId)
-  //   .do();
-
-  // GET /v2/deltas/{round}/txn/group
-  // const roundWithTxnGroup = 57624226;
-  // await algod
-  //   .getTransactionGroupLedgerStateDeltasForRound(roundWithTxnGroup)
-  //   .do();
-}
-
 export async function algosdkAlgodRequestsWithMainnet() {
   // TestNet configuration (using AlgoNode public API)
   const algod = new Algodv2(

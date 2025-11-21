@@ -1,10 +1,8 @@
 import { record } from ".";
 import {
   algosdkAlgodRequests,
-  algosdkAlgodRequests1,
   algosdkAlgodRequestsWithMainnet,
-  algosdkAlgodRequestsApiCalls,
-  algosdkAlgodRequestsTest
+  algosdkAlgodRequestsApiCalls
 } from "./requests/algodRequests";
 import { algosdkKmdRequests } from "./requests/kmdRequests";
 import { algosdkIndexerRequests } from "./requests/indexerRequests";
@@ -19,7 +17,6 @@ export async function recordAlgosdkRequests(
   if (client === "algod") {
     makeRequests = async () => {
       await algosdkAlgodRequests();
-      // await algosdkAlgodRequests1();
       await algosdkAlgodRequestsWithMainnet();
       await algosdkAlgodRequestsApiCalls();
     };
