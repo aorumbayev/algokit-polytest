@@ -1,6 +1,7 @@
 {
   "name": "algokit_transact Test Plan",
   "package_name": "algokit_transact",
+  "version": "0.6.0",
   "suite": {
     "Payment": {
       "desc": "Tests for payment transactions",
@@ -99,9 +100,13 @@
   },
   "target": {
     "pytest": {
+      "out_dir": "../../tests/modules/transact"
+    },
+    "vitest": {
       "out_dir": "../../tests"
     }
   },
+
   "document": {
     "markdown": {
       "out_file": "../docs/test_plans/transact.md"
