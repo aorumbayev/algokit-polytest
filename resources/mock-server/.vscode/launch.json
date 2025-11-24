@@ -10,6 +10,7 @@
       "name": "Debug Replay Server",
       "program": "${workspaceFolder}/bin/server.ts",
       "args": ["algod"], // Change to: algod, indexer, or kmd
+      // "args": ["algod", "${workspaceFolder}/tmp-recordings"], // Change to: algod, indexer, or kmd
       "cwd": "${workspaceFolder}",
       "stopOnEntry": false,
       "watchMode": false,
@@ -21,15 +22,62 @@
     {
       "type": "bun",
       "request": "launch",
-      "name": "Debug Record",
-      "program": "${workspaceFolder}/bin/record.ts",
-      "args": ["algod", "record-new"], // Change client: algod, indexer, kmd | mode: record-new, record-overwrite
+      "name": "Debug Find Pending Transactions",
+      "program": "${workspaceFolder}/scripts/find-pending-transactions.ts",
+      "args": ["60", "1000"], // [pollDuration in seconds, pollInterval in ms]
       "cwd": "${workspaceFolder}",
       "stopOnEntry": false,
-      "watchMode": false,
-      "env": {
-        "NODE_ENV": "development"
-      }
+      "watchMode": false
+    },
+    {
+      "type": "bun",
+      "request": "launch",
+      "name": "Debug Find Apps With Boxes",
+      "program": "${workspaceFolder}/scripts/find-apps-with-boxes.ts",
+      "args": ["1", "50"], // [batch number, batchSize]
+      "cwd": "${workspaceFolder}",
+      "stopOnEntry": false,
+      "watchMode": false
+    },
+    {
+      "type": "bun",
+      "request": "launch",
+      "name": "Debug Find Transaction With Proof",
+      "program": "${workspaceFolder}/scripts/find-transaction-with-proof.ts",
+      "args": ["latest", "100"], // [startBlock or "latest", numBlocks]
+      "cwd": "${workspaceFolder}",
+      "stopOnEntry": false,
+      "watchMode": false
+    },
+    {
+      "type": "bun",
+      "request": "launch",
+      "name": "Debug Find Round With Txn Groups",
+      "program": "${workspaceFolder}/scripts/find-round-with-txn-groups.ts",
+      "args": ["latest", "250"], // [startBlock or "latest", numBlocks]
+      "cwd": "${workspaceFolder}",
+      "stopOnEntry": false,
+      "watchMode": false
+    },
+    {
+      "type": "bun",
+      "request": "launch",
+      "name": "Debug Find Transaction Group ID",
+      "program": "${workspaceFolder}/scripts/find-transaction-group-id.ts",
+      "args": ["latest", "300"], // [startBlock or "latest", numBlocks]
+      "cwd": "${workspaceFolder}",
+      "stopOnEntry": false,
+      "watchMode": false
+    },
+    {
+      "type": "bun",
+      "request": "launch",
+      "name": "Debug Find Blocks With StateProof",
+      "program": "${workspaceFolder}/scripts/find-blocks-with-stateproof.ts",
+      "args": ["latest", "275"], // [startBlock or "latest", numBlocks]
+      "cwd": "${workspaceFolder}",
+      "stopOnEntry": false,
+      "watchMode": false
     }
   ]
 }

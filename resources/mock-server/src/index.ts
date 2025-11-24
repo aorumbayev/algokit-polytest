@@ -47,6 +47,39 @@ export function getPolly(
 
   const polly = new Polly(client, pollyConfig);
 
+  // Encode binary msgpack responses as base64 before persisting to HAR
+  polly.server.any().on("beforePersist", (_req, rec) => {
+    const contentType = rec.response.headers.find(
+      (h: any) => h.name.toLowerCase() === "content-type"
+    )?.value;
+
+    if (contentType?.includes("msgpack") && rec.response.content) {
+      // If we have binary data, ensure it's base64 encoded for storage
+      if (rec.response.content.text) {
+        // Check if it's already a string (might be base64 already)
+        if (typeof rec.response.content.text === "string") {
+          // Already encoded, mark it as such
+          rec.response.content.encoding = "base64";
+        } else {
+          // Convert binary to base64 string
+          const buffer = Buffer.from(rec.response.content.text);
+          rec.response.content.text = buffer.toString("base64");
+          rec.response.content.encoding = "base64";
+        }
+      }
+    }
+
+    // Rewrite localhost URLs to production URLs before saving to HAR
+    // This allows recording against localhost (where test data exists) while storing
+    // production-like URLs that match what the mock server expects during replay
+    if (rec.request.url.includes("http://localhost:4001")) {
+      rec.request.url = rec.request.url.replace(
+        "http://localhost:4001",
+        "https://testnet-api.4160.nodely.dev"
+      );
+    }
+  });
+
   const headersToRemove = [
     "transfer-encoding", // Conflicts with content-length header during replay
     "content-encoding", // HAR stores decompressed body but header indicates compression (e.g. gzip), causing decompression errors
