@@ -9,7 +9,7 @@
       "request": "launch",
       "name": "Debug Replay Server",
       "program": "${workspaceFolder}/bin/server.ts",
-      "args": ["algod"], // Change to: algod, indexer, or kmd
+      "args": ["indexer"], // Change to: algod, indexer, or kmd
       // "args": ["algod", "${workspaceFolder}/tmp-recordings"], // Change to: algod, indexer, or kmd
       "cwd": "${workspaceFolder}",
       "stopOnEntry": false,
@@ -17,6 +17,19 @@
       "env": {
         "NODE_ENV": "development",
         "LOG_LEVEL": "debug"
+      }
+    },
+    {
+      "type": "bun",
+      "request": "launch",
+      "name": "Debug Find Pending Transactions",
+      "program": "${workspaceFolder}/scripts/find-pending-transactions.ts",
+      "args": ["60", "1000"], // [pollDuration in seconds, pollInterval in ms]
+      "cwd": "${workspaceFolder}",
+      "stopOnEntry": false,
+      "watchMode": false,
+      "env": {
+        "NODE_ENV": "development"
       }
     },
     {
