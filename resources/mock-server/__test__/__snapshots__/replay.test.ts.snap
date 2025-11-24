@@ -42,8 +42,8 @@ HealthCheck {
   "dbAvailable": true,
   "errors": undefined,
   "isMigrating": false,
-  "message": "57490591",
-  "round": 57490591n,
+  "message": "57772761",
+  "round": 57772761n,
   "version": "3.9.0",
 }
 `;
